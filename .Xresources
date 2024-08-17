@@ -1,0 +1,7 @@
+#include "iterm-ayu.Xresources"
+
+! Font
+*.vt100.faceName: UbuntuMono Nerd Font:size=12
+
+! xterm configs
+xterm.borderWidth: 0

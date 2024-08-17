@@ -1,0 +1,3 @@
+feh --bg-fill $HOME/wallpapers/18.jpg & 
+nm-applet &
+xrdb -load -I$HOME/.config/X11 $HOME/.Xresources &

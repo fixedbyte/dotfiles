@@ -1,3 +1,6 @@
 [submodule ".config/X11/xrthemes"]
 	path = .config/X11/xrthemes
 	url = https://github.com/fixedbyte/xrthemes.git
+[submodule "wallpapers"]
+	path = wallpapers
+	url = git@github.com:fixedbyte/wallpapers.git

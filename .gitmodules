@@ -4,3 +4,6 @@
 [submodule "wallpapers"]
 	path = wallpapers
 	url = git@github.com:fixedbyte/wallpapers.git
+[submodule ".config/alacritty/alacritty-theme"]
+	path = .config/alacritty/alacritty-theme
+	url = git@github.com:fixedbyte/alacritty-theme.git

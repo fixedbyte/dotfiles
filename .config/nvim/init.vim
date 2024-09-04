@@ -1,9 +1,12 @@
+" Author:
+" Fixedbyte (Wilmer Quispe)
+
 if !exists('g:vscode')
     let g:mapleader = "\<Space>"
 endif
 
 set number relativenumber
-set colorcolumn=81
+set colorcolumn=100
 set laststatus=0
 set smartindent
 set autoindent
@@ -25,62 +28,63 @@ set splitright
 set clipboard=unnamedplus
 set background=dark
 set autochdir
-set notermguicolors
+set termguicolors
+set nocompatible
+set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,terminal
+set completeopt=noinsert,menuone,noselect
 syntax enable
 filetype on
 filetype indent on
 filetype plugin on
 
 call plug#begin()
-
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'romgrk/barbar.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-tree/nvim-tree.lua'
-
+    " Plugins
+    Plug 'lewis6991/gitsigns.nvim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+    Plug 'sheerun/vim-polyglot'
+    " Themes
+    Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
-lua << END
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'ayu_dark',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-    }
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-}
-END
+"
+" Themes
+"
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
+
+" 
+" NERDTree
+"
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
+
+"
+" Vim Airline
+"
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" 
+" Indent guides
+"
+let g:indent_guides_enable_on_vim_startup = 1

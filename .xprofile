@@ -1,6 +1,18 @@
-xrdb -load -I$HOME/.config/X11/xrthemes $HOME/.Xresources &
+#/bin/sh
+#
+# Author:
+# Fixedbyte (Wilmer Quispe)
+#
+
+# Load theme in xrdb database
+xrdb -load -all -I$HOME/.config/X11/xrthemes $HOME/.Xresources &
+# Set wallpaper
 feh --bg-fill $HOME/wallpapers/18.jpg & 
+# Enable network manager tray icon
 nm-applet &
+# Enable battery icon on systray
 cbatticon &
+# Enable mounted disk icon on systray
 udiskie -t &
+# Enable volume icon on systray
 volapplet &

@@ -1,4 +1,9 @@
 #!/bin/sh
+#
+# Author:
+# Fixedbyte (Wilmer Quispe)
+#
+
 # Variables
 
 # Functions
@@ -15,17 +20,7 @@ function colon {
     echo -n ","
 }
 
-function separator {
-    echo -n "{"
-    echo -n "\"full_text\":\"\","
-    echo -n "\"color\":\"#ff0000\","
-    common
-    echo -n "}"
-    colon
-}
-
 function get_date {
-    separator
     echo -n "{"
     echo -n "\"name\":\"time\","
     echo -n "\"full_text\":\" $(date "+%a %D %T") \","
@@ -44,7 +39,6 @@ echo '[]'
 while :; do
     echo -n ",["
     get_date
-#    separator
     echo -n "]"
     sleep 1
 done &

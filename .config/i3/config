@@ -1,3 +1,5 @@
+# Fixedbyte (Wilmer Quispe)
+# 
 set $mod Mod4
 
 # Font
@@ -188,7 +190,7 @@ bar {
         i3bar_command i3bar --transparency #00000000
         status_command $HOME/.config/i3/fixedbar.sh
         position top
-        padding -2px 0
+        padding 0
 	    separator_symbol ""
 	    tray_padding 2
         tray_output primary
@@ -196,18 +198,18 @@ bar {
 	    strip_workspace_numbers yes
 	    font pango:UbuntuMono Nerd Font, 10
         colors {
-#           <colorclass>            <border> <background> <text>
-            background              $background
-            focused_background      $background
-            statusline              $white
+#           <colorclass>            <border>    <background>    <text>
+            background              $background $background     $background
+            focused_background      $background $background     $background
+            statusline              $white      $white          $white
             focused_statusline      $white
             separator               $background
             focused_separator       $background
-		    focused_workspace       $cyan $cyan $black
-            inactive_workspace      $black $black $yellow
-            active_workspace        $black $black $yellow
-            urgent_workspace        $red $red $white
-            binding_mode            $red $red $white
+		    focused_workspace       $cyan       $cyan           $black
+            inactive_workspace      $black      $black          $yellow
+            active_workspace        $black      $black          $yellow
+            urgent_workspace        $red        $red            $white
+            binding_mode            $red        $red            $white
 	    }
 }
 
